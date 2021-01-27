@@ -16,14 +16,14 @@ public class PlayerMove : MonoBehaviour
 	private float normalizedHorizontalSpeed = 0;
 
 	private CharacterController2D _controller;
-	//private Animator _animator;
+	private Animator _animator;
 	private RaycastHit2D _lastControllerColliderHit;
 	private Vector3 _velocity;
 
 
 	void Awake()
 	{
-	//	_animator = GetComponent<Animator>();
+		_animator = GetComponent<Animator>();
 		_controller = GetComponent<CharacterController2D>();
 
 		// listen to some events for illustration purposes
@@ -73,7 +73,7 @@ public class PlayerMove : MonoBehaviour
 				transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
 		//	if (_controller.isGrounded)
-		//		_animator.Play(Animator.StringToHash("Run"));
+				_animator.Play(Animator.StringToHash("bunnywalk"));
 		}
 		else if (Input.GetKey(KeyCode.A))
 		{
@@ -82,14 +82,14 @@ public class PlayerMove : MonoBehaviour
 				transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
 		//	if (_controller.isGrounded)
-		//		_animator.Play(Animator.StringToHash("Run"));
+				_animator.Play(Animator.StringToHash("bunnywalk"));
 		}
 		else
 		{
 			normalizedHorizontalSpeed = 0;
 
 		//	if (_controller.isGrounded)
-		//		_animator.Play(Animator.StringToHash("Idle"));
+				_animator.Play(Animator.StringToHash("bunnyidle"));
 		}
 
 		if (_controller.isGrounded && Input.GetKeyDown(KeyCode.Space)) // changed to wasda - well, ada ;)

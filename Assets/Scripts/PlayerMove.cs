@@ -98,7 +98,7 @@ public class PlayerMove : MonoBehaviour
 			//  _animator.Play( Animator.StringToHash( "Jump" ) );
 		}
 
-		if (Input.GetKeyUp(KeyCode.UpArrow) && _velocity.y > -(Mathf.Sqrt(-gravity)))
+		if (Input.GetKeyUp(KeyCode.Space) && _velocity.y > -(Mathf.Sqrt(-gravity)))
 		{
 			_velocity.y = -(Mathf.Sqrt(-gravity));
 		}
